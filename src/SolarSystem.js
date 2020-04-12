@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Zdog from "zdog";
+import Color from "color";
 import "./SolarSystem.css";
 
 /**
@@ -27,44 +28,76 @@ function random(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-/**
- * Tracks a Moon whose position can be determined by the current time, relative
- * to a parent body.
- */
-class Moon {
+class Planet {
   constructor({
-    parent,
+    parent = null,
     diameter = 25,
-    orbitalPeriod = 5000,
-    orbitalDistance = 200,
-    orbitalOffset = Zdog.TAU
+    glow = {
+      color: "#FFFFFF",
+      radius: 25
+    },
+    color = "#000099",
+    orbit = {
+      period: 5000,
+      distance: { apogee: 200, perigee: 400 },
+      offset: Zdog.TAU
+    }
   }) {
-    this.orbitalPeriod = orbitalPeriod; // Milliseconds.
-    this.orbitalDistance = orbitalDistance; // perigee+apogee or radius
-    this.orbitalOffset = orbitalOffset; // Rotate the orbital plane
+    this.parent = parent;
+    this.orbit = orbit;
+    this.glow = glow;
+    this.diameter = diameter;
+    this.color = color;
 
-    this.model = new Zdog.Shape({
-      addTo: parent,
-      stroke: diameter,
-      color: "#FFFFFF"
+    this.moons = [];
+    this.model = this.generateModel();
+  }
+
+  generateModel() {
+    const planet = new Zdog.Shape({
+      addTo: this.parent,
+      stroke: this.diameter,
+      color: this.color
     });
+
+    if (this.glow) {
+      let steps = 5;
+      for (let i = 0; i < steps; i++) {
+        planet.copy({
+          stroke: this.diameter + this.glow.radius * 2 - i,
+          color: Color(this.glow.color)
+            .fade(0.1)
+            .hsl()
+            .string()
+        });
+      }
+    }
+
+    return planet;
+  }
+
+  // TODO: Color.rotate with orbital angle?
+
+  getRandomMoon() {
+    if (this.moons.length < 1) return this.model;
+    return this.moons[Math.floor(Math.random() * this.moons.length)].model;
   }
 
   getOrbitalAngle() {
     return Zdog.lerp(
       0,
       Zdog.TAU,
-      (Date.now() % this.orbitalPeriod) / this.orbitalPeriod
+      (Date.now() % this.orbit.period) / this.orbit.period
     );
   }
 
   getOrbitalPosition() {
     let perigee, apogee;
-    if (typeof this.orbitalDistance === "number") {
-      perigee = this.orbitalDistance;
-      apogee = this.orbitalDistance;
+    if (typeof this.orbit.distance === "number") {
+      perigee = this.orbit.distance;
+      apogee = this.orbit.distance;
     } else {
-      ({ perigee, apogee } = this.orbitalDistance);
+      ({ perigee, apogee } = this.orbit.distance);
     }
 
     return pointOnEllipse(
@@ -72,15 +105,22 @@ class Moon {
       0,
       apogee,
       perigee,
-      this.orbitalOffset,
+      this.orbit.offset,
       this.getOrbitalAngle()
     );
   }
 
   updatePosition() {
-    const { x, y } = this.getOrbitalPosition();
-    this.model.translate.x = x;
-    this.model.translate.z = y;
+    if (this.orbit) {
+      const { x, y } = this.getOrbitalPosition();
+      this.model.translate.x = x;
+      this.model.translate.z = y;
+    }
+  }
+
+  animate() {
+    this.updatePosition();
+    this.moons.forEach(moon => moon.updatePosition());
   }
 }
 
@@ -90,43 +130,53 @@ class Moon {
 class SolarSystem {
   constructor() {
     this.selector = "#solarsystem";
-    this.illo = new Zdog.Illustration({
+    this.cosmicBackground = new Zdog.Illustration({
       element: this.selector,
       resize: true,
       dragRotate: true,
       zoom: 1
     });
 
-    this.earth = new Zdog.Shape({
-      addTo: this.illo,
-      stroke: 150,
-      color: "#636"
+    this.earth = new Planet({
+      parent: this.cosmicBackground,
+      diameter: 180,
+      orbit: false,
+      glow: {
+        color: "#FFFFFF",
+        radius: 10
+      }
     });
 
-    this.moons = [];
-    for (let i = 0; i < 20; i++) {
-      this.moons.push(
-        new Moon({
-          parent: this.earth,
+    for (let i = 0; i < 1; i++) {
+      this.earth.moons.push(
+        new Planet({
+          parent:
+            Math.random() > 0.6 && i > 0
+              ? this.earth.model
+              : this.earth.getRandomMoon(),
           diameter: random(5, 60),
-          orbitalPeriod: random(1000, 120000),
-          orbitalOffset: random(0, Zdog.TAU),
-          orbitalDistance: {
-            apogee: random(300, 600),
-            perigee: random(300, 600)
+          color: "#886677",
+          glow: false,
+          orbit: {
+            period: random(7000, 8000),
+            offset: random(0, Zdog.TAU),
+            distance: {
+              apogee: random(300, 600),
+              perigee: random(300, 600)
+            }
           }
         })
       );
     }
 
-    this.illo.rotate.z = Zdog.TAU / 256;
-    this.illo.rotate.y = Zdog.TAU / 2;
-    this.illo.rotate.x = -Zdog.TAU / 32;
+    this.cosmicBackground.rotate.z = Zdog.TAU / 256;
+    this.cosmicBackground.rotate.y = Zdog.TAU / 2;
+    this.cosmicBackground.rotate.x = -Zdog.TAU / 32;
   }
 
   animate() {
-    this.moons.forEach(moon => moon.updatePosition());
-    this.illo.updateRenderGraph();
+    this.earth.animate();
+    this.cosmicBackground.updateRenderGraph();
     requestAnimationFrame(this.animate.bind(this));
   }
 }
