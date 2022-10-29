@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Zdog from "zdog";
 import Color from "color";
-import "./SolarSystem.css";
 
 /**
  * @param {number} x X origin offset
