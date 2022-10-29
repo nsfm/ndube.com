@@ -32,7 +32,7 @@ class Planet {
   constructor({
     parent = null,
     diameter = 25,
-    glow = {
+    atmosphere = {
       color: "#FFFFFF",
       radius: 25
     },
@@ -45,32 +45,48 @@ class Planet {
   }) {
     this.parent = parent;
     this.orbit = orbit;
-    this.glow = glow;
+    this.atmosphere = atmosphere;
     this.diameter = diameter;
     this.color = color;
 
     this.moons = [];
+    this.anchor = new Zdog.Anchor({ addTo: this.parent });
     this.model = this.generateModel();
   }
 
   generateModel() {
     const planet = new Zdog.Shape({
-      addTo: this.parent,
+      addTo: this.anchor,
       stroke: this.diameter,
       color: this.color
     });
 
-    if (this.glow) {
+    if (this.atmosphere) {
+      const group = new Zdog.Group({
+        addTo: this.anchor
+      });
+
+      planet.copy({
+        addTo: group,
+        color: Color(this.atmosphere.color)
+          .fade(0.85)
+          .hsl()
+          .string()
+      });
+
       let steps = 5;
       for (let i = 0; i < steps; i++) {
-        planet.copy({
-          stroke: this.diameter + this.glow.radius * 2 - i,
-          color: Color(this.glow.color)
-            .fade(0.1)
+        new Zdog.Shape({
+          addTo: group,
+          stroke: this.diameter + this.atmosphere.radius - i,
+          color: Color(this.atmosphere.color)
+            .fade(0.95)
             .hsl()
             .string()
         });
       }
+
+      group.addChild(planet);
     }
 
     return planet;
@@ -79,16 +95,18 @@ class Planet {
   // TODO: Color.rotate with orbital angle?
 
   getRandomMoon() {
-    if (this.moons.length < 1) return this.model;
-    return this.moons[Math.floor(Math.random() * this.moons.length)].model;
+    if (this.moons.length < 1) return this.anchor;
+    return this.moons[Math.floor(Math.random() * this.moons.length)].anchor;
   }
 
   getOrbitalAngle() {
-    return Zdog.lerp(
+    const angle = Zdog.lerp(
       0,
       Zdog.TAU,
       (Date.now() % this.orbit.period) / this.orbit.period
     );
+    this.model.color = Color(this.color).rotate(angle * (180 / Math.PI));
+    return angle;
   }
 
   getOrbitalPosition() {
@@ -113,8 +131,8 @@ class Planet {
   updatePosition() {
     if (this.orbit) {
       const { x, y } = this.getOrbitalPosition();
-      this.model.translate.x = x;
-      this.model.translate.z = y;
+      this.anchor.translate.x = x;
+      this.anchor.translate.z = y;
     }
   }
 
@@ -141,7 +159,7 @@ class SolarSystem {
       parent: this.cosmicBackground,
       diameter: 180,
       orbit: false,
-      glow: {
+      atmosphere: {
         color: "#FFFFFF",
         radius: 10
       }
@@ -152,11 +170,11 @@ class SolarSystem {
         new Planet({
           parent:
             Math.random() > 0.6 && i > 0
-              ? this.earth.model
+              ? this.earth.anchor
               : this.earth.getRandomMoon(),
           diameter: random(5, 60),
           color: "#886677",
-          glow: false,
+          atmosphere: false,
           orbit: {
             period: random(7000, 8000),
             offset: random(0, Zdog.TAU),
