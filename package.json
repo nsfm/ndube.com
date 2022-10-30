@@ -9,6 +9,7 @@
     "@blueprintjs/icons": "^4.8.0",
     "@blueprintjs/popover2": "^1.7.4",
     "@blueprintjs/select": "^4.8.4",
+    "@types/color": "^3.0.3",
     "color": "^4.2.3",
     "dualsense-ts": "5.0.4",
     "react": "^18.2.0",
