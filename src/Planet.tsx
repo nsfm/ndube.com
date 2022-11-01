@@ -1,13 +1,10 @@
 import Zdog from "zdog";
 import Color from "color";
-import { useState } from "react";
+import { useState, Key } from "react";
+import { Shape } from "react-zdog";
 
 import { pointOnEllipse } from "./Math";
-
-export type PlanetAtmosphere = {
-  color: string;
-  radius: number;
-};
+import { AtmosphereProps, Atmosphere } from "./Atmosphere";
 
 export type PlanetOrbit = {
   period: number;
@@ -16,9 +13,9 @@ export type PlanetOrbit = {
 };
 
 export type PlanetProps = {
-  parent: Zdog.Anchor | Zdog.Illustration;
+  id?: Key;
   diameter?: number;
-  atmosphere?: PlanetAtmosphere;
+  atmosphere?: AtmosphereProps | false;
   color?: string;
   orbit?: PlanetOrbit;
 };
@@ -43,73 +40,31 @@ const getOrbitalAngle = (orbit: PlanetOrbit): number => {
   return Zdog.lerp(0, Zdog.TAU, (Date.now() % orbit.period) / orbit.period);
 };
 
-const renderPlanet = ({
-  diameter,
-  color,
-  anchor,
-  atmosphere,
-}: {
-  anchor: Zdog.Anchor;
-  color: string;
-  diameter: number;
-  atmosphere?: PlanetAtmosphere;
-}): Zdog.Shape => {
-  const planet = new Zdog.Shape({
-    addTo: anchor,
-    stroke: diameter,
-    color: color,
-  });
+export const Planet = (props: PlanetProps) => {
+  const { atmosphere, orbit, color } = props;
+  const [diameter] = useState(props.diameter || 25);
 
-  if (atmosphere) {
-    const group = new Zdog.Group({
-      addTo: anchor,
-    });
-
-    planet.copy({
-      addTo: group,
-      color: Color(atmosphere.color).fade(0.85).hsl().string(),
-    });
-
-    let steps = 5;
-    for (let i = 0; i < steps; i++) {
-      new Zdog.Shape({
-        addTo: group,
-        stroke: diameter + atmosphere.radius - i,
-        color: Color(atmosphere.color).fade(0.95).hsl().string(),
-      });
-    }
-
-    group.addChild(planet);
+  let fadeColor = color;
+  let translate = { x: 0, y: 0 };
+  if (orbit) {
+    const angle = getOrbitalAngle(orbit);
+    translate = getOrbitalPosition(orbit, angle);
+    fadeColor = Color(props.color)
+      .rotate(angle * (180 / Math.PI))
+      .string();
   }
 
-  return planet;
-};
-
-export const Planet = (props: PlanetProps) => {
-  const { parent } = props;
-  const [diameter] = useState(props.diameter || 25);
-  const [atmosphere] = useState(
-    props.atmosphere || {
-      color: "#FFFFFF",
-      radius: 25,
-    }
+  return (
+    <Shape translate={translate} stroke={diameter} color={fadeColor}>
+      {atmosphere ? (
+        <Atmosphere
+          color={atmosphere.color}
+          radius={atmosphere.radius}
+          planetRadius={atmosphere.planetRadius}
+        />
+      ) : (
+        ""
+      )}
+    </Shape>
   );
-  const [orbit] = useState(
-    props.orbit || {
-      period: 5000,
-      distance: { apogee: 200, perigee: 400 },
-      offset: Zdog.TAU,
-    }
-  );
-  const angle = getOrbitalAngle(orbit);
-  const translate = getOrbitalPosition(orbit, angle);
-
-  const color = Color(props.color)
-    .rotate(angle * (180 / Math.PI))
-    .string();
-
-  const anchor = new Zdog.Anchor({ addTo: parent, translate });
-  const shape = renderPlanet({ anchor, diameter, color, atmosphere });
-
-  return { shape, anchor };
 };

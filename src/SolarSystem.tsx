@@ -1,68 +1,65 @@
-import Zdog from "zdog";
-import React from "react";
+import { Illustration, Group } from "react-zdog";
+import styled from "styled-components";
+import { TAU } from "zdog";
 
 import { Planet } from "./Planet";
 import { randomRange } from "./Math";
 
+const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  cursor: move;
+`;
+
 /**
  * Manages the planets.
  */
-export const SolarSystem = ({ selector }: { selector: string }) => {
-  const cosmicBackground = new Zdog.Illustration({
-    element: `#${selector}`,
-    resize: true,
-    dragRotate: true,
-    zoom: 1,
-  });
+export const SolarSystem = () => {
+  const planets = [
+    <Planet
+      key={0}
+      color="#FFFFFF"
+      diameter={180}
+      atmosphere={{
+        color: "#FFFFFF",
+        radius: 20,
+        planetRadius: 90,
+      }}
+    />,
+  ];
 
-  const earth = Planet({
-    parent: cosmicBackground,
-    diameter: 180,
-    atmosphere: {
-      color: "#FFFFFF",
-      radius: 10,
-    },
-  });
-
-  const moons: { shape: Zdog.Shape; anchor: Zdog.Anchor }[] = [];
-
-  for (let i = 0; i < 6; i++) {
-    moons.push(
-      Planet({
-        parent:
-          moons.length > 0
-            ? Math.random() > 0.6 && i > 0
-              ? earth.anchor
-              : moons[Math.floor(Math.random() * moons.length)].anchor
-            : earth.anchor,
-        diameter: randomRange(5, 60),
-        color: "#886677",
-        orbit: {
+  for (let i = 1; i < 6; i++) {
+    planets.push(
+      <Planet
+        key={i}
+        diameter={randomRange(5, 60)}
+        color="#886677"
+        atmosphere={false}
+        orbit={{
           period: randomRange(7000, 8000),
-          offset: randomRange(0, Zdog.TAU),
+          offset: randomRange(0, TAU),
           distance: {
             apogee: randomRange(300, 600),
             perigee: randomRange(300, 600),
           },
-        },
-      })
+        }}
+      />
     );
   }
 
-  cosmicBackground.rotate.z = Zdog.TAU / 256;
-  cosmicBackground.rotate.y = Zdog.TAU / 2;
-  cosmicBackground.rotate.x = -Zdog.TAU / 32;
-
-  const requestRef = React.useRef(0);
-  const animate = () => {
-    cosmicBackground.updateRenderGraph();
-    requestRef.current = requestAnimationFrame(animate);
-  };
-
-  React.useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current);
-  }, []); // Make sure the effect runs only once
-
-  return <div />;
+  console.log(planets);
+  return (
+    <Container>
+      <Illustration dragRotate={true} element="svg" zoom={1}>
+        {planets}
+      </Illustration>
+    </Container>
+  );
 };
+/*
+ *
+        <Group
+          rotate={{ x: -Zdog.TAU / 32, y: Zdog.TAU / 2, z: Zdog.TAU / 256 }}
+        >
+        */

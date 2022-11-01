@@ -5,11 +5,3 @@ body {
   margin: 0;
   background: #1b2838;
 }
-
-#solarsystem {
-  height: 100vh;
-  width: 100vw;
-  display: block;
-  margin: 0 auto;
-  cursor: move;
-}

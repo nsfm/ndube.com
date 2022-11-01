@@ -10,10 +10,9 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-const selector = "solarsystem";
 root.render(
   <React.StrictMode>
-    <SolarSystem selector={selector} />
+    <SolarSystem />
   </React.StrictMode>
 );
 
