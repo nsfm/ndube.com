@@ -48,14 +48,14 @@ export const SolarSystem = () => {
         {new Array(Math.floor(Math.random() * 10)).fill(0).map((val, j) => (
           <Planet
             key={`${i}.${j}`}
-            diameter={randomRange(5, 10)}
+            diameter={randomRange(5, 20)}
             color="#886677"
             atmosphere={false}
             orbit={{
-              period: randomRange(1000, 2000),
+              period: randomRange(1500, 4000),
               offset: randomRange(0, TAU),
               distance: {
-                apogee: randomRange(100, 200),
+                apogee: randomRange(80, 120),
                 perigee: randomRange(100, 200),
               },
             }}
