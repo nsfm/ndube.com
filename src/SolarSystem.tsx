@@ -19,12 +19,11 @@ export const SolarSystem = () => {
   const planets = [
     <Planet
       key={0}
-      color="#FFFFFF"
-      diameter={180}
+      color="#A9A9A9"
+      diameter={75}
       atmosphere={{
         color: "#FFFFFF",
-        radius: 20,
-        planetRadius: 90,
+        diameter: 160,
       }}
     />,
   ];
@@ -33,7 +32,7 @@ export const SolarSystem = () => {
     planets.push(
       <Planet
         key={i}
-        diameter={randomRange(20, 60)}
+        diameter={randomRange(20, 50)}
         color="#886677"
         atmosphere={false}
         orbit={{

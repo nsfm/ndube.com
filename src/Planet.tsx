@@ -63,8 +63,8 @@ export const Planet = (props: PropsWithChildren<PlanetProps>) => {
       {atmosphere ? (
         <Atmosphere
           color={atmosphere.color}
-          radius={atmosphere.radius}
-          planetRadius={atmosphere.planetRadius}
+          steps={atmosphere.steps}
+          diameter={atmosphere.diameter}
         />
       ) : (
         ""

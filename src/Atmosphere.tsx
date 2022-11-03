@@ -3,21 +3,24 @@ import Color from "color";
 
 export type AtmosphereProps = {
   color: string;
-  radius: number;
-  planetRadius: number;
+  diameter: number;
+  steps?: number;
 };
 
 export const Atmosphere = (props: AtmosphereProps) => {
-  const { color, radius, planetRadius } = props;
-  const steps = 5;
-  const layers = [];
+  const { color, diameter } = props;
+  const steps = props.steps || 20;
 
-  for (let i = 0; i < steps; i++) {
+  const layers = [];
+  for (let i = 1; i < steps; i++) {
     layers.push(
       <Shape
         key={i}
-        stroke={planetRadius * 2 + radius - i}
-        color={Color(color).fade(0.95).hsl().string()}
+        stroke={(0.6 * diameter + 0.4 * diameter * (i / steps))}
+        color={Color(color)
+          .fade(0.8 + 0.2 * (i / steps))
+          .hsl()
+          .string()}
       />
     );
   }
