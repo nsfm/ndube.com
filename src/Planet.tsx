@@ -1,7 +1,7 @@
 import Zdog from "zdog";
 import Color from "color";
-import { useState, Key } from "react";
-import { Shape } from "react-zdog";
+import { useState, PropsWithChildren } from "react";
+import { Shape, useRender } from "react-zdog";
 
 import { pointOnEllipse } from "./Math";
 import { AtmosphereProps, Atmosphere } from "./Atmosphere";
@@ -13,7 +13,6 @@ export type PlanetOrbit = {
 };
 
 export type PlanetProps = {
-  id?: Key;
   diameter?: number;
   atmosphere?: AtmosphereProps | false;
   color?: string;
@@ -40,22 +39,27 @@ const getOrbitalAngle = (orbit: PlanetOrbit): number => {
   return Zdog.lerp(0, Zdog.TAU, (Date.now() % orbit.period) / orbit.period);
 };
 
-export const Planet = (props: PlanetProps) => {
-  const { atmosphere, orbit, color } = props;
+export const Planet = (props: PropsWithChildren<PlanetProps>) => {
+  const { atmosphere, orbit, color, children } = props;
   const [diameter] = useState(props.diameter || 25);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useRender(() => {
+    if (!orbit) return;
+    const angle = getOrbitalAngle(orbit);
+    setPosition(getOrbitalPosition(orbit, angle));
+  });
 
   let fadeColor = color;
-  let translate = { x: 0, y: 0 };
   if (orbit) {
     const angle = getOrbitalAngle(orbit);
-    translate = getOrbitalPosition(orbit, angle);
     fadeColor = Color(props.color)
       .rotate(angle * (180 / Math.PI))
       .string();
   }
 
   return (
-    <Shape translate={translate} stroke={diameter} color={fadeColor}>
+    <Shape translate={position} stroke={diameter} color={fadeColor}>
       {atmosphere ? (
         <Atmosphere
           color={atmosphere.color}
@@ -65,6 +69,7 @@ export const Planet = (props: PlanetProps) => {
       ) : (
         ""
       )}
+      {children}
     </Shape>
   );
 };
