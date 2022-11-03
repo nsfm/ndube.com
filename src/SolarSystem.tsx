@@ -1,4 +1,4 @@
-import { Illustration } from "react-zdog";
+import { Illustration, Anchor } from "react-zdog";
 import styled from "styled-components";
 import { TAU } from "zdog";
 
@@ -40,8 +40,8 @@ export const SolarSystem = () => {
           period: randomRange(7000, 8000),
           offset: randomRange(0, TAU),
           distance: {
-            apogee: randomRange(300, 600),
-            perigee: randomRange(300, 600),
+            apogee: randomRange(200, 400),
+            perigee: randomRange(100, 400),
           },
         }}
       >
@@ -68,13 +68,10 @@ export const SolarSystem = () => {
   console.log(planets);
   return (
     <Container>
-      <Illustration
-        rotate={{ x: -TAU / 32, y: TAU / 2, z: TAU / 256 }}
-        dragRotate={true}
-        element="svg"
-        zoom={1}
-      >
-        {planets}
+      <Illustration dragRotate={true} element="svg" zoom={1}>
+        <Anchor rotate={{ x: Math.PI / 3, y: Math.PI / 2, z: 0 }} stroke={0}>
+          {planets}
+        </Anchor>
       </Illustration>
     </Container>
   );
