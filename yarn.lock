@@ -1092,18 +1092,18 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@blueprintjs/colors@^4.1.11":
-  version "4.1.11"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-4.1.11.tgz#2fd7ade6fa2a3c5057ccda88d29710fb9502308e"
-  integrity sha512-Lvj11npFr8oBkiM/Df1vWFaFD6NodfQJK+TpJ5EO+wqXuN8Ot6n/cqA9on1o85dK/4quKTHsdvC9RsEb1bNQFg==
+"@blueprintjs/colors@^4.1.12":
+  version "4.1.12"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-4.1.12.tgz#5cc85152fb42f5ff8c92dbccfc04ce25eebb1b7f"
+  integrity sha512-tid/RQv/hmSrt6OW56lN8UfoV4UH0aQVzjHsURetboIxRbqTCa7bY/ywgT1UdVXXgPxkxUqdj0JPasZE0O38ig==
 
-"@blueprintjs/core@^4.14.1":
-  version "4.14.1"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-4.14.1.tgz#f2a53b319d3bd715716b064d4a1ad6b612a5ef32"
-  integrity sha512-0q1+KSLPpLn/CR+zsoATyG01KPbByuIHA2xfJk63Mr1uRzeX3yjyRvWH6lkM+CeKrtTbGvcJM2XNKBRqzoxEDA==
+"@blueprintjs/core@^4.14.3":
+  version "4.14.3"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-4.14.3.tgz#5d0132858d5c5c9c5edaf2adb664ec8d7ec47798"
+  integrity sha512-4UzLvFvNR5abzWdHDDg74HxqncLwHWI2HVEx55lDRBJE9jtXrrVMdfPIW2o2BZv3XgFF2QoPMUQW+5neZzLRGg==
   dependencies:
-    "@blueprintjs/colors" "^4.1.11"
-    "@blueprintjs/icons" "^4.12.1"
+    "@blueprintjs/colors" "^4.1.12"
+    "@blueprintjs/icons" "^4.12.2"
     "@juggle/resize-observer" "^3.4.0"
     "@types/dom4" "^2.0.2"
     classnames "^2.3.1"
@@ -1114,7 +1114,7 @@
     react-transition-group "^4.4.5"
     tslib "~2.3.1"
 
-"@blueprintjs/icons@^4.12.1", "@blueprintjs/icons@^4.12.2":
+"@blueprintjs/icons@^4.12.2":
   version "4.12.2"
   resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-4.12.2.tgz#1ced5114d7b696c0e5772ef721c9d56ec1939b56"
   integrity sha512-BiDa7Ez6v9pZKbrRWs5u1GuqFvAdreRyT0zThshzgA0434qBxHXMlfROqLC2TT3JnCYbQjFPo5SdPxKf6YCSBA==
