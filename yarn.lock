@@ -1092,18 +1092,18 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@blueprintjs/colors@^4.1.12":
-  version "4.1.12"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-4.1.12.tgz#5cc85152fb42f5ff8c92dbccfc04ce25eebb1b7f"
-  integrity sha512-tid/RQv/hmSrt6OW56lN8UfoV4UH0aQVzjHsURetboIxRbqTCa7bY/ywgT1UdVXXgPxkxUqdj0JPasZE0O38ig==
+"@blueprintjs/colors@^4.1.14":
+  version "4.1.14"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-4.1.14.tgz#ae8360c8feb19935fdd5fef617bb8fadac99eae5"
+  integrity sha512-MT++a/OSGui8tMpo5dEogrTV/PJCsHuhXTmdsGQtzivlLwBAp1XKe/Np4vaX6seJqRgR0oyXgS9kVvomCl463Q==
 
-"@blueprintjs/core@^4.14.3":
-  version "4.14.3"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-4.14.3.tgz#5d0132858d5c5c9c5edaf2adb664ec8d7ec47798"
-  integrity sha512-4UzLvFvNR5abzWdHDDg74HxqncLwHWI2HVEx55lDRBJE9jtXrrVMdfPIW2o2BZv3XgFF2QoPMUQW+5neZzLRGg==
+"@blueprintjs/core@^4.15.1":
+  version "4.15.1"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-4.15.1.tgz#eb7e20ee73b2d49f1d30d114bd2b2ee0ae2485f7"
+  integrity sha512-EAg9lFsHTZeXyTtX5YI2lHb2AxoUT1fLFf8wT+cxvMoCrU+JUcxDZ616ewTeZX6CC3BpgxW3wqJ56SYkKRBp4g==
   dependencies:
-    "@blueprintjs/colors" "^4.1.12"
-    "@blueprintjs/icons" "^4.12.2"
+    "@blueprintjs/colors" "^4.1.14"
+    "@blueprintjs/icons" "^4.13.1"
     "@juggle/resize-observer" "^3.4.0"
     "@types/dom4" "^2.0.2"
     classnames "^2.3.1"
@@ -1114,7 +1114,7 @@
     react-transition-group "^4.4.5"
     tslib "~2.3.1"
 
-"@blueprintjs/icons@^4.12.2", "@blueprintjs/icons@^4.13.1":
+"@blueprintjs/icons@^4.13.1":
   version "4.13.1"
   resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-4.13.1.tgz#81ffa36572f300845cb6b98f53dbd1a38d512022"
   integrity sha512-2AM1V9OpDbFjbu5cEL9/Uo7o9D5GdMeDpykA4NbnLoInh9RHMVr5YBp3EMJEeEfGqUnTUAqTEG3RhakUnKtRPw==
