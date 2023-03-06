@@ -1101,18 +1101,18 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@blueprintjs/colors@^4.1.15":
-  version "4.1.15"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-4.1.15.tgz#745217581640a1f5fdb4c0d767fde608a7de2887"
-  integrity sha512-iOwfwE3tOXiM+dmwkdK7fY6dCGqg7yBLYAUHrmPUeYscrqZ8gJqUXAtDumuWMoLvm1SEz5SVIEfm16QnHd4efw==
+"@blueprintjs/colors@^4.1.19":
+  version "4.1.19"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-4.1.19.tgz#364d4d5d23ecee48002d6b29c71a8a24af5512ae"
+  integrity sha512-x5mDo4Ue9rAdbMHvOm0dNru9MSZqgs9Dd/l/2rgjzottthjsq1XjkiVae6evX4EGNM0I/bZKjTT8ccvqCqn4yw==
 
-"@blueprintjs/core@^4.16.3":
-  version "4.16.3"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-4.16.3.tgz#04b5f02589f3bfca30c28a08edc1ca5b43d99d8b"
-  integrity sha512-XFqcuwG9QBP/6LxegzDBv7PlTY8LdPM53nfJ8nRcUMcHmHoZ8HyYA9f40lMbiUTg4yAFz50Yw8Fc8uAja267ag==
+"@blueprintjs/core@^4.17.4":
+  version "4.17.4"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-4.17.4.tgz#c1af38e4dea60a85ed574111f883d4d76eb4165f"
+  integrity sha512-pGz5XIZAb8ngmD+KgEGODE5sbo3No1DLhx5J3DDJFRf7MOnQDwsURI/Qr+yZWjgaUXLr7ZqdNHGSVaynwavTHA==
   dependencies:
-    "@blueprintjs/colors" "^4.1.15"
-    "@blueprintjs/icons" "^4.13.2"
+    "@blueprintjs/colors" "^4.1.19"
+    "@blueprintjs/icons" "^4.14.3"
     "@juggle/resize-observer" "^3.4.0"
     "@types/dom4" "^2.0.2"
     classnames "^2.3.1"
@@ -1123,7 +1123,7 @@
     react-transition-group "^4.4.5"
     tslib "~2.3.1"
 
-"@blueprintjs/icons@^4.13.2", "@blueprintjs/icons@^4.14.3":
+"@blueprintjs/icons@^4.14.3":
   version "4.14.3"
   resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-4.14.3.tgz#adbad0d47b94f8c737d9e14b36fe70bf484ce482"
   integrity sha512-2X5VXYCfybcax+tPVFl6WDngdxEk6AS7gflRjI9iuiJvkgjnkYeHBXZGRMhCzZb/B6+cBuMyvvAxmD2WVtlQsg==
