@@ -6,18 +6,18 @@ import { Shape, useRender } from "react-zdog";
 import { pointOnEllipse } from "./Math";
 import { AtmosphereProps, Atmosphere } from "./Atmosphere";
 
-export type PlanetOrbit = {
+export interface PlanetOrbit {
   period: number;
   distance: { apogee: number; perigee: number } | number;
   offset: number;
-};
+}
 
-export type PlanetProps = {
+export interface PlanetProps {
   diameter?: number;
   atmosphere?: AtmosphereProps | false;
   color?: string;
   orbit?: PlanetOrbit;
-};
+}
 
 // Get coordinates on an ellipse at the specified angle
 const getOrbitalPosition = (
@@ -41,7 +41,7 @@ const getOrbitalAngle = (orbit: PlanetOrbit): number => {
 
 export const Planet = (props: PropsWithChildren<PlanetProps>) => {
   const { atmosphere, orbit, color, children } = props;
-  const [diameter] = useState(props.diameter || 25);
+  const [diameter] = useState(props.diameter ?? 25);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useRender(() => {

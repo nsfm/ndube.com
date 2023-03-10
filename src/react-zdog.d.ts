@@ -2,11 +2,11 @@ declare module "react-zdog" {
   import React from "react";
   import zdog from "zdog";
 
-  export type ZdogContext = {
+  export interface ZdogContext {
     illu: zdog.Illustration;
     scene: zdog.Anchor;
     size: DOMRectReadOnly;
-  };
+  }
 
   export function useZdog(): ZdogContext;
 
