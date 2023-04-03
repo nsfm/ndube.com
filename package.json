@@ -32,7 +32,7 @@
     "@types/styled-components": "^5.1.26",
     "@types/zdog": "^1.1.2",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
-    "@typescript-eslint/parser": "^5.56.0",
+    "@typescript-eslint/parser": "^5.57.0",
     "barrelsby": "^2.5.1",
     "eslint": "^8.37.0",
     "prettier": "^2.8.4",
