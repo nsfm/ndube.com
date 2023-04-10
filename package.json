@@ -35,7 +35,7 @@
     "@typescript-eslint/parser": "^5.57.0",
     "barrelsby": "^2.5.1",
     "eslint": "^8.38.0",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.7",
     "react-is": ">=16.8.0",
     "typescript": "^5.0.3"
   },
