@@ -1098,18 +1098,20 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@blueprintjs/colors@^4.1.23":
-  version "4.1.23"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-4.1.23.tgz#4facbe7610adcb3653f99b03b8dec0c6ac6c1372"
-  integrity sha512-XiocrpqUS6DCpjFsDAtbwcETyuglwpOFCjon+Du4PZzQqafTrs+4p73H2EIZZJNQm1ajxSFQgmbhfrOFgAZXfA==
-
-"@blueprintjs/core@^4.19.2":
-  version "4.19.2"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-4.19.2.tgz#830e6438ce632c068be278b84eeae3f5744b46f8"
-  integrity sha512-wnr35rR5M9eFUfFKZCmE7xAJ0R0wTcRU8qKXmQb4c/KKQdIqv0mFDuh4c8p/uTtR3YmdYEYLChCBTTA4idkawQ==
+"@blueprintjs/colors@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-4.2.1.tgz#603b2512caee84feddcb3dbd536534c140b9a1f3"
+  integrity sha512-Cx7J2YnUuxn+fi+y5XtXnBB7+cFHN4xBrRkaAetp78i3VTCXjUk+d1omrOr8TqbRucUXTdrhbZOUHpzRLFcJpQ==
   dependencies:
-    "@blueprintjs/colors" "^4.1.23"
-    "@blueprintjs/icons" "^4.15.1"
+    tslib "~2.5.0"
+
+"@blueprintjs/core@^4.19.5":
+  version "4.19.5"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-4.19.5.tgz#b4a1d1c3a61d788dba9eaaf663b9f54ca8c788d1"
+  integrity sha512-81z0rRHnRBy1PCJr8G11QWYk4v+GTFeIKm16WT4gADHcQ/1ZPVIaRoTexCHedYT7qQGCoHufQmYVum8k/bSMVw==
+  dependencies:
+    "@blueprintjs/colors" "^4.2.1"
+    "@blueprintjs/icons" "^4.16.0"
     "@juggle/resize-observer" "^3.4.0"
     "@types/dom4" "^2.0.2"
     classnames "^2.3.1"
@@ -1120,7 +1122,7 @@
     react-transition-group "^4.4.5"
     tslib "~2.5.0"
 
-"@blueprintjs/icons@^4.15.1", "@blueprintjs/icons@^4.16.0":
+"@blueprintjs/icons@^4.16.0":
   version "4.16.0"
   resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-4.16.0.tgz#47f9e8abe64d84fc18721080b8f191d8aac075d8"
   integrity sha512-cyfgjUZcZCtQrXWUV8FwqYTFEzduV4a0N7yhOU38jY+cBRCLu/sDrD0Osvfk4DGRvNe4YjY7pohVLFSxpg68Uw==
