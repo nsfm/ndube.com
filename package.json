@@ -5,7 +5,7 @@
   "license": "GPL-3.0",
   "private": true,
   "dependencies": {
-    "@blueprintjs/core": "^4.20.2",
+    "@blueprintjs/core": "^5.0.1",
     "@blueprintjs/icons": "^4.16.0",
     "color": "^4.2.3",
     "react": "^18.2.0",
