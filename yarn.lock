@@ -8332,10 +8332,10 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-zdog@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/react-zdog/-/react-zdog-1.0.11.tgz#b43474304b0c8731d0fa84a906c0ece4fb9d9f2b"
-  integrity sha512-L6/8Zi+Nf+faNMsSZ31HLmLlu6jcbs/jqqFvme7CFnYjAeYfhJ4HyuHKd7Pu/zk9tegv6FaJj1v+hmUwUpKLQw==
+react-zdog@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-zdog/-/react-zdog-1.2.0.tgz#188886718d5dc2a0a2e10af414caf05f29a90f09"
+  integrity sha512-rb5R4YptnlwzX+UU2OTP3CBUSfyCBngDpUpJ1vCr4RdvWe+Qc+7bGYLFf41eX6goY5MWW+1Ar0u9UCVsRAVoIw==
   dependencies:
     "@babel/runtime" "^7.4.4"
     lodash-es "^4.17.11"
