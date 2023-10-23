@@ -2489,10 +2489,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@types/zdog@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@types/zdog/-/zdog-1.1.5.tgz#fde1f8bc185c08a34596a393860cba1a445b9344"
-  integrity sha512-pVoniEmKUGiBuNGwKLAFyvqh3L0NNg51FOZhCmnL2N7hr8fUMcOP4l2HtoWo2N4chK+Zenc8EZ/PuU7AiM+AKQ==
+"@types/zdog@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@types/zdog/-/zdog-1.1.6.tgz#341174e8404091599805f09bd6c1be58c8fd8401"
+  integrity sha512-vcPX/kAlCjuizd/UMFQEYPDH8CY5AXCRehO9vSV44wyMiRj9WUg9bNII03O8dFzVcK648S05miesaLIvcLTVjA==
 
 "@typescript-eslint/eslint-plugin@^5.5.0", "@typescript-eslint/eslint-plugin@^5.62.0":
   version "5.62.0"
