@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "@blueprintjs/core": "^5.7.1",
-    "@blueprintjs/icons": "^5.4.1",
+    "@blueprintjs/icons": "^5.5.0",
     "color": "^4.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
