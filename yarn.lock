@@ -1304,28 +1304,28 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@blueprintjs/colors@^5.0.8":
-  version "5.0.8"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-5.0.8.tgz#c4658d1c314bb69086c8f54179fac84e668f5018"
-  integrity sha512-Y/gpCMc/NAiScuH6vJGDI6vW2RqgR9ayEwtesVirQz3KnQSAHvbZWlgHzEO4Teyhc6FuXL3Tbj5kfq5JCeEyoQ==
+"@blueprintjs/colors@^5.0.9":
+  version "5.0.9"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/colors/-/colors-5.0.9.tgz#efc5bfe070a2721e157a0d57c110be818be35781"
+  integrity sha512-dWCw4WQ+vuXe4sp+o0owDOuqO84hCMR4mZwdBpsBPbb2eE1G1Vt91e9WH3G8/+6A8xONS8GHOAhWkiAlkr/ENg==
   dependencies:
     tslib "~2.6.2"
 
-"@blueprintjs/core@^5.7.2":
-  version "5.7.2"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-5.7.2.tgz#494beb68c00e913c71a486a968d39007279f43b1"
-  integrity sha512-wzYSog3RGsNq95F0stYZ+C6/PBjPidFRzVRnQPeUO/M0tZCL4QEbKC4qNz1flGlXaQH5sD6rjaoRoFaJfouXVg==
+"@blueprintjs/core@^5.8.2":
+  version "5.8.2"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-5.8.2.tgz#06af6677fa02018bbefac0bc679f0353c5bd1256"
+  integrity sha512-reeCUMT7exH2zxA4T6aAfgK9YARE9nUkRKwZK9XgZ/sTzojB75SuaUehrTYz4hQ6HrWbWtUzhhpK4ooI8OIWJA==
   dependencies:
-    "@blueprintjs/colors" "^5.0.8"
-    "@blueprintjs/icons" "^5.5.0"
-    "@popperjs/core" "^2.11.7"
+    "@blueprintjs/colors" "^5.0.9"
+    "@blueprintjs/icons" "^5.7.0"
+    "@popperjs/core" "^2.11.8"
     classnames "^2.3.1"
     normalize.css "^8.0.1"
     react-popper "^2.3.0"
     react-transition-group "^4.4.5"
     tslib "~2.6.2"
 
-"@blueprintjs/icons@^5.5.0", "@blueprintjs/icons@^5.7.0":
+"@blueprintjs/icons@^5.7.0":
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-5.7.0.tgz#ea18c9118c2fbf2444efd40913aed1d3842b9676"
   integrity sha512-rRTDhdbDjY6WWCoZtgbD2UNPwpvjGGhieJcrvP/RcKaJKxRP4BeE9ejFq+5NWtBuVfVOraIiYF7fx6xc0wd/ww==
@@ -1861,7 +1861,7 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@popperjs/core@^2.11.7":
+"@popperjs/core@^2.11.8":
   version "2.11.8"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
